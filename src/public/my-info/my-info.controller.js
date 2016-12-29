@@ -6,10 +6,12 @@ angular.module('public')
 
 MyInfoController.$inject = ['SignUpService'];
 function MyInfoController(SignUpService) {
-  var $ctrl = this;
+  var ctrl = this;
 
   //$ctrl.getUser = function (){
-    $ctrl.user = SignUpService.getUser();
+    ctrl.user = SignUpService.getUser();
+
+    console.log('user', ctrl.user);
   //}
 }
 

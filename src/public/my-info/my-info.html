@@ -1,16 +1,40 @@
 <fieldset>
 
+<div ng-show="ctrl.user">
 <div>
-  First Name: {{myInfoCtrl.user.firstName}}
+  First Name: {{ctrl.user.firstName}}
+</div>
   <br>
-  Last Name:
+  <div>
+  Last Name: {{ctrl.user.lastName}}
+</div>
   <br>
-  E-mail:
+  <div>
+  E-mail: {{ctrl.user.email}}
+</div>
   <br>
-  Phone Number:
+  <div>
+  Phone Number: {{ctrl.user.phone}}
+</div>
   <br>
-  Favorite Dish:
+  <div>
+  Favorite Dish: {{ctrl.user.favorite}}
+</div>
+  <br>
+<div>
+Favorite Dish Name: {{ctrl.user.favoriteDish.name}}
+</div>
+  <br>
+<div>
+Favorite Dish Description: {{ctrl.user.favoriteDish.description}}
+</div>
+  <br>
+<img class="img-responsive" width="250" height="150" ng-src="{{ctrl.user.favoriteDish.pictureUrl}}" alt="General Tso's Chicken" >
 
+</div>
+
+<div ng-hide="ctrl.user">
+  <h2 ui-sref="public.signup"> Not Signed Up Yet. Sign up Now!</h2>
 </div>
 
 

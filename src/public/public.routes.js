@@ -44,8 +44,7 @@ function routeConfig ($stateProvider) {
     .state('public.signup',{
       url: '/signUp',
       templateUrl: 'src/public/sign-up/sign-up.html',
-      controller: 'SignUpController',
-      controllerAs: 'signUpCtrl'
+      controller: 'SignUpController as ctrl'
       // resolve: (
       //   item: ['$stateParams','SignUpService',  function (MenuDataService, $stateParams){
       //     return SignUpService.getItem($stateParams.user.favorite)
@@ -55,8 +54,7 @@ function routeConfig ($stateProvider) {
     .state('public.myinfo',{
       url: '/myInfo',
       templateUrl: 'src/public/my-info/my-info.html',
-      controller:'MyInfoController',
-      controllerAs: 'myInfoCtrl'
+      controller:'MyInfoController as ctrl'
       // resolve: {
       //   user: ['$stateParams','SignUpService',  function (SignUpService, $stateParams){
       //     return SignUpService.getUser();

@@ -6,7 +6,7 @@ angular.module('public')
 .constant('HerokuPath', "https://evandrometz-solution5.herokuapp.com/menu_items/")
 ;
 
-var user;
+var serviceUser;
 
 SignUpService.$inject = ['$http','HerokuPath']
 function SignUpService( $http, HerokuPath) {
@@ -21,25 +21,18 @@ service.getItem = function (favorite) {
   return response;
 }
 
-service.saveUser = function ( firstName,lastName, email, phone, favorite){
+service.saveUser = function ( user){
 
 console.log("no serviço");
-console.log(firstName, lastName, email, phone,favorite);
+console.log(user);
 
-  var serviceFirstName = firstName;
-  var serviceLastName = lastName;
-  var serviceEmail = email;
-  var servicePhone = phone;
-  var serviceFavoriteDish = favorite;
-  console.log(serviceFirstName, serviceLastName, serviceEmail, servicePhone,serviceFavoriteDish);
+  serviceUser = user;
+  console.log(serviceUser);
 }
 
  service.getUser = function (){
-   user.firstname = serviceFirstName;
-   user.lastName = serviceLastName;
-
-   console.log(user.firstname);
- return user;
+     console.log('No servico de get', serviceUser);
+ return serviceUser;
 }
 }
 

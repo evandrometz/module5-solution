@@ -8,35 +8,36 @@ SignUpController.$inject = ['SignUpService'];
 function SignUpController(SignUpService) {
 
     console.log("Na controller");
-  var signUpCtrl = this;
+  var ctrl = this;
 
 //signUpCtrl.user.completed=true;
 //signUpCtrl.user.favorite = item;
 
-  signUpCtrl.submit = function () {
-  signUpCtrl.completed = true;
+  ctrl.submit = function () {
+  ctrl.completed = true;
   };
 
-signUpCtrl.test = function(){
+ctrl.test = function(){
   console.log("Na função teste");
 };
-  signUpCtrl.getFavoriteDish = function (favorite, firstName, lastName, email, phone){
+  ctrl.getFavoriteDish = function (){
 
     console.log("Na função");
-    var promise = SignUpService.getItem(favorite);
+    var promise = SignUpService.getItem(ctrl.user.favorite);
     promise.then(function (response){
-      signUpCtrl.user.favoriteDish = response.data;
-      console.log(signUpCtrl.user.favoriteDish);
-      signUpCtrl.user.incompleted=false;
-      console.log(signUpCtrl.user.incompleted);
-      SignUpService.saveUser(firstName,lastName,email,phone,favorite);
-      signUpCtrl.user.saved = true;
+      ctrl.user.favoriteDish = response.data;
+      ctrl.user.favoriteDish.pictureUrl = ('https://evandrometz-solution5.herokuapp.com'+ '/images/' + ctrl.user.favoriteDish.short_name + '.jpg' );
+      console.log('prato favorito', ctrl.user.favoriteDish);
+      ctrl.user.incompleted=false;
+      console.log(ctrl.user.incompleted);
+      SignUpService.saveUser(ctrl.user);
+      ctrl.user.saved = true;
     })
     .catch(function (error){
-      signUpCtrl.user.incompleted=true;
+      ctrl.user.incompleted=true;
       console.log(error);
-      console.log(signUpCtrl.user.incompleted);
-      signUpCtrl.user.saved = false;
+      console.log(ctrl.user.incompleted);
+      ctrl.user.saved = false;
     });
   }
 
