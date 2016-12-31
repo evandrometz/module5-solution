@@ -10,8 +10,6 @@ function MyInfoController(SignUpService) {
 
   //$ctrl.getUser = function (){
     ctrl.user = SignUpService.getUser();
-
-    console.log('user', ctrl.user);
   //}
 }
 

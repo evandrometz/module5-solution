@@ -23,15 +23,11 @@ service.getItem = function (favorite) {
 
 service.saveUser = function ( user){
 
-console.log("no serviço");
-console.log(user);
 
   serviceUser = user;
-  console.log(serviceUser);
 }
 
  service.getUser = function (){
-     console.log('No servico de get', serviceUser);
  return serviceUser;
 }
 }
